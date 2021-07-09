@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import PokemonItem from "./PokemonItem";
 
-const Pokemon = ({ url }) => {
+const PokemonInfo = ({ url }) => {
   const [pokemon, setPokemon] = useState();
-  const [typeTwo, setTypeTwo] = useState("");
 
   //urlPokemon
   useEffect(() => {
@@ -20,29 +18,9 @@ const Pokemon = ({ url }) => {
     }
   }, [url]);
 
-  /*  useEffect(() => {
-    if (pokemon.types.length > 1) {
-      setTypeTwo(pokemon.types[1].type.name);
-    } else {
-      setTypeTwo("");
-    }
-  }, [pokemon]); */
-
   return (
     <>
-      {pokemon && (
-        <PokemonItem
-          img={pokemon.sprites.front_default}
-          name={pokemon.name}
-          typeOne={pokemon.types[0].type.name}
-          //por esta linea falla
-          //typeTwo={pokemon.types[1].type.name}
-          typeTwo={typeTwo}
-          length={pokemon.types.length}
-        />
-      )}
-
-      {/*Funciona correctamente pokemon === undefined ? (
+      {pokemon === undefined ? (
         false
       ) : (
         <figure className="poke-card">
@@ -57,9 +35,9 @@ const Pokemon = ({ url }) => {
             </span>
           </figcaption>
         </figure>
-      ) */}
+      )}
     </>
   );
 };
 
-export default Pokemon;
+export default PokemonInfo;

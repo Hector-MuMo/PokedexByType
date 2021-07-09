@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Pokemon from "./components/Pokemon";
+import PokemonInfo from "./components/PokemonInfo";
 
 function App() {
   const [inputValue, setInputValue] = useState("Ice");
@@ -55,7 +55,7 @@ function App() {
           ) : (
             data.map((u, index) =>
               index < amount ? (
-                <Pokemon key={index} url={u.pokemon.url} />
+                <PokemonInfo key={index} url={u.pokemon.url} />
               ) : (
                 false
               )
